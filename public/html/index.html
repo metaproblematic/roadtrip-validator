@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://unpkg.com/vue"></script>
+	<link rel="stylesheet" >
+</head>
+<body>
+
+<div id="app">
+	<div v-for="(item, i) in items">
+		<h3>{{item.name}}</h3>
+		<p>weight: {{item.weight}}</p>
+		<p>price: {{item.price}}</p>
+		<img v-bind:src="item.picture" v-bind:height="item.imageHeight" v-bind:width="item.imageWidth">
+		<button v-bind:class="item.name" v-on:click="addItem($event,i)">Add</button>
+		<button v-bind:class="item.name" v-on:click="removeItem($event,i)">Remove</button>
+	</div>
+	<h3 v-if="returnPrice < 201">{{returnPrice}}</h3>
+	<h3 v-else style="color:red">You are over budget!</h3>
+	<h3 v-if="returnWeight < 201">{{returnWeight}}</h3>
+	<h3 v-else style="color:red">You have too much cargo!</h3>
+<br>
+<br>
+<button v-on:click="validate" style="height: 100px; width: 100px">Check to see if your cargo will fit</button>
+<br>
+<h3>{{validString}}</h3>
+<br>
+<br>
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
